@@ -1,5 +1,5 @@
 {
-    "hash": "80eea3a4ae1fa3171266b9fc8364432d",
+    "hash": "1a0d8a29fdeb802e4e87f67ec6c14359",
     "packages": [
         {
             "name": "doctrine/common",
@@ -296,6 +296,114 @@
             ]
         },
         {
+            "name": "doctrine/doctrine-migrations-bundle",
+            "version": "dev-master",
+            "target-dir": "Doctrine/Bundle/MigrationsBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
+                "reference": "e494aceebe05200c3f5e7b54c9facf2cf0b2099c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/doctrine/DoctrineMigrationsBundle/archive/e494aceebe05200c3f5e7b54c9facf2cf0b2099c.zip",
+                "reference": "e494aceebe05200c3f5e7b54c9facf2cf0b2099c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "doctrine/migrations": "*",
+                "symfony/framework-bundle": ">=2.1.0,<2.3-dev",
+                "doctrine/doctrine-bundle": "1.0.*"
+            },
+            "time": "1350561870",
+            "type": "symfony-bundle",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Bundle\\MigrationsBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Doctrine Project",
+                    "homepage": "http://www.doctrine-project.org"
+                }
+            ],
+            "description": "Symfony DoctrineMigrationsBundle",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "dbal",
+                "migrations",
+                "schema"
+            ]
+        },
+        {
+            "name": "doctrine/migrations",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/migrations",
+                "reference": "c1d875ce7d092dd1bc7508c3867b5c6b97431e43"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/doctrine/migrations/archive/c1d875ce7d092dd1bc7508c3867b5c6b97431e43.zip",
+                "reference": "c1d875ce7d092dd1bc7508c3867b5c6b97431e43",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "doctrine/dbal": ">=2.0,<2.5.x-dev"
+            },
+            "require-dev": {
+                "symfony/console": "2.*",
+                "symfony/yaml": "2.*"
+            },
+            "suggest": {
+                "symfony/console": "to run the migration from the console"
+            },
+            "time": "1350643044",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\DBAL\\Migrations": "lib"
+                }
+            },
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com",
+                    "homepage": "http://www.jwage.com/"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                }
+            ],
+            "description": "Database Schema migrations using Doctrine DBAL",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database",
+                "migrations"
+            ]
+        },
+        {
             "name": "doctrine/orm",
             "version": "2.3.x-dev",
             "source": {
@@ -363,6 +471,53 @@
             "keywords": [
                 "database",
                 "orm"
+            ]
+        },
+        {
+            "name": "jdorn/sql-formatter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/jdorn/sql-formatter.git",
+                "reference": "0461ab0ff16e096b8c51f085349f38ed5f2ea241"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/jdorn/sql-formatter/archive/0461ab0ff16e096b8c51f085349f38ed5f2ea241.zip",
+                "reference": "0461ab0ff16e096b8c51f085349f38ed5f2ea241",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "time": "1353191518",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "classmap": [
+                    "lib"
+                ]
+            },
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Dorn",
+                    "email": "jeremy@jeremydorn.com",
+                    "homepage": "http://jeremydorn.com/"
+                }
+            ],
+            "description": "a PHP SQL highlighting library",
+            "homepage": "https://github.com/jdorn/sql-formatter/",
+            "keywords": [
+                "sql",
+                "highlight"
             ]
         },
         {
@@ -1111,12 +1266,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "aa124288676648f727370876ccdf6dd7f208dc46"
+                "reference": "1c0ba78833d35de66b3ae8ad3b088c1ffd9381b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/archive/aa124288676648f727370876ccdf6dd7f208dc46.zip",
-                "reference": "aa124288676648f727370876ccdf6dd7f208dc46",
+                "url": "https://github.com/symfony/symfony/archive/1c0ba78833d35de66b3ae8ad3b088c1ffd9381b7.zip",
+                "reference": "1c0ba78833d35de66b3ae8ad3b088c1ffd9381b7",
                 "shasum": ""
             },
             "require": {
@@ -1165,7 +1320,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "1.*"
             },
-            "time": "1353512263",
+            "time": "1353758650",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1301,6 +1456,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "doctrine/doctrine-fixtures-bundle": 20
+        "doctrine/doctrine-fixtures-bundle": 20,
+        "doctrine/doctrine-migrations-bundle": 20
     }
 }
