@@ -60,6 +60,11 @@ class Blog
      */
     protected $updated;
     
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
+    
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -67,7 +72,35 @@ class Blog
         $this->setCreated(new \DateTime());
         $this->setUpdated(new \DateTime());
     }
+    
+    public function slugify($text)
+    {
+    // replace non letter or digits by -
+    $text = preg_replace('#[^\\pL\d]+#u', '-', $text);
 
+    // trim
+    $text = trim($text, '-');
+
+    // transliterate
+    if (function_exists('iconv'))
+    {
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+    }
+
+    // lowercase
+    $text = strtolower($text);
+
+    // remove unwanted characters
+    $text = preg_replace('#[^-\w]+#', '', $text);
+
+    if (empty($text))
+    {
+        return 'n-a';
+    }
+
+    return $text;
+    }
+    
     /**
      * @ORM\PreUpdate
      */
@@ -100,8 +133,8 @@ class Blog
     public function setTitle($title)
     {
         $this->title = $title;
-    
-        return $this;
+
+        $this->setSlug($this->title);    
     }
 
     /**
@@ -286,5 +319,26 @@ class Blog
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Blog
+     */
+    public function setSlug($slug)
+    {
+    $this->slug = $this->slugify($slug);
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

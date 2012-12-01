@@ -60,9 +60,14 @@ class Blog
      */
     protected $updated;
     
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
+    
     public function __construct()
     {
-        $this->comments = new ArrayColletion();
+        $this->comments = new ArrayCollection();
         
         $this->setCreated(new \DateTime());
         $this->setUpdated(new \DateTime());
@@ -74,6 +79,11 @@ class Blog
     public function setUpdatedValue()
     {
        $this->setUpdated(new \DateTime());
+    }
+    
+    public function __toString()
+    {
+        return $this->getTitle();
     }
 
     /**
