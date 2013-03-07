@@ -30,3 +30,11 @@ BloggerBlogBundle_comment_create:
     requirements:
         _method:  POST
         blog_id: \d+
+
+BloggerBlogBundle_blog_create:
+  pattern: /blog
+  defaults: { _controller: BloggerBlogBundle:Blog:create}
+  requirements: 
+       _method: GET|POST
+       
+        

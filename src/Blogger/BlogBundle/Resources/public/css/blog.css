@@ -6,6 +6,46 @@
         Purpose of the stylesheet follows.
 */
 
+/* Estilo formulário de criação de post */
+
+form.blogger-post {
+    font-size: 16px;
+}
+
+form.blogger-post div {
+    clear: left;
+    margin-bottom: 16px;
+}
+
+form.blogger-post label {
+    float: left;
+    margin-right: 10px;
+    text-align: right;
+    width: 100px;
+    font-weight: bold;
+    vertical-align: top;
+    padding-top: 10px;
+}
+
+form.blogger-post input {
+    width: 500px;
+    line-height: 26px; 
+    font-size: 20px; 
+    min-height: 26px;
+}
+
+form.blogger-post input[type="submit"] { 
+    float: right; 
+    width: 120px; 
+    line-height: 26px;
+    font-size: 20px;
+    min-height: 26px;
+}
+
+
+/*
+    Estilo da fashdata, após o envio do formulário.
+*/
 .blogger-notice {
     text-align: center;
     padding: 10px;

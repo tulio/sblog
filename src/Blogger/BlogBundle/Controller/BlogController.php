@@ -4,6 +4,10 @@
 namespace Blogger\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Blogger\BlogBundle\Entity\Blog;
+use Blogger\BlogBundle\Form\BlogType;
+use Symfony\Component\HttpFoundation\Request;
+
 
 /**
  * Blog controller.
@@ -32,4 +36,36 @@ class BlogController extends Controller
             'comments'  => $comments
         ));
     }
+    
+    public function createAction(Request $request)
+    {
+        $post  = new Blog();
+        $post->setBlog('Novo Post');
+        $request = $this->getRequest();
+        $form    = $this->createForm(new BlogType, $post);
+        $form->bindRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()
+                       ->getEntityManager();
+            $em->persist($post);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('BloggerBlogBundle_blog_create', array(
+                'id'    => $post->getBlog()->getId(),
+                'slug'  => $post->getBlog()->getSlug())) 
+            );
+        }
+
+        return $this->render('BloggerBlogBundle:Blog:create.html.twig', array(
+            'post' => $post,
+            'form'    => $form->createView()
+        ));
+    }
+    
+    protected function getBlog()
+    {
+        
+    }
+    
 }
